@@ -1,0 +1,24 @@
+{
+    "type": "mysql",
+    "host": "inventoryapp.mysql.database.azure.com",
+    "port": 3306,
+    "username": "pablo1012@inventoryapp",
+    "password": "Pjml#104",
+    "database": "inventory",
+    "ssl": true,
+    "entities": [
+        "src/entity/*.ts"
+    ],
+    "logging": true,
+    "migrations": [
+      "src/migration/**/*.ts"
+    ],
+    "subscribers": [
+       "src/subscriber/**/*.ts"
+    ],
+    "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    }
+}
