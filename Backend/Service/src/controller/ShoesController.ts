@@ -7,12 +7,7 @@ export class ShoesController {
     private shoesRepository = getConnection().getRepository(Shoe);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        
-        let allShoes = await this.shoesRepository.find();
-        if (allShoes.length){
-            return allShoes;
-        }
-        else return "No Shoes Found";
+       return this.shoesRepository.find(({select: ["id","codename", "brand"], relations: ["brand"]}));        
     }
 
     async one(request: Request, response: Response, next: NextFunction) {

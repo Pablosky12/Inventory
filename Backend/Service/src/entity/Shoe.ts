@@ -8,6 +8,9 @@ export class Shoe {
 
     @Column()
     codename: string;
+    
+    @Column()
+    price: string;
 
     @OneToOne(type => Brand, Brand => Brand.id)
     @JoinColumn()

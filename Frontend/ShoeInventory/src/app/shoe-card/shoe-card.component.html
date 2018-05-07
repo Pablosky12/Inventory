@@ -1,3 +1,18 @@
-<p>
-  shoe-card works!
-</p>
+<div id="body"fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+  <div  *ngFor="let shoe of shoes">
+    <mat-card fxLayout="column" >
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>{{shoe.codename}}</mat-card-title>
+      </mat-card-header>
+      <img src="https://secure-images.nike.com/is/image/DotCom/640744_100_A_PREM?$SNKRS_COVER_WD$&align=0,1">
+      <mat-card-content fxLayoutAlign="center center">
+        This is a default Text
+      </mat-card-content>
+      <mat-card-actions>
+        <div fxLayoutAlign="end end">
+          <button mat-raised-button color="primary" class="bytButton">Buy</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

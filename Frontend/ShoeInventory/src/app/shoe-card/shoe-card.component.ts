@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoesApiService } from '../shoesApi.service';
+import { Shoe } from '../Models';
 
 @Component({
   selector: 'app-shoe-card',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoeCardComponent implements OnInit {
 
-  constructor() { }
+  shoes;
+  constructor(private shoeApi: ShoesApiService) { }
 
   ngOnInit() {
+    this.shoeApi.getAllShoes().subscribe((shoes) => {this.shoes = shoes; console.log(shoes); });
   }
 
 }

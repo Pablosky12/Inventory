@@ -1,3 +1,20 @@
 <mat-toolbar color="primary">
   <span>Shoe Inventory</span>
+
+  <button mat-button [matMenuTriggerFor]="shoes" >Shoes</button>
+
+  <mat-menu #shoes="matMenu" overlapTrigger="false">
+      <button mat-menu-item>Add New</button>
+      <button mat-menu-item>All Shoes</button>
+      <button mat-menu-item>By Brand</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="transactions">Transactions</button>
+
+  <mat-menu #transactions="matMenu" overlapTrigger="false">
+      <button mat-menu-item>Sells</button>
+      <button mat-menu-item>Purchases</button>
+      <button mat-menu-item>All</button>
+  </mat-menu>
+
 </mat-toolbar>

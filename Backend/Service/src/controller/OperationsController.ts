@@ -8,22 +8,15 @@ export class OperationsController {
     private operationsRepository = getConnection().getRepository(Operation);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        
-        let allOps = await this.operationsRepository.find();
-        if (allOps.length){
-            return allOps;
-        }
-        else return "No operations Found";
+        return this.operationsRepository.find();
     }
 
     async byType(request: Request, response: Response, next: NextFunction){
-        let purchases = await this.operationsRepository.find({where: {type: request.params.type}});
-        return purchases;
+        return this.operationsRepository.find({where: {type: request.params.type}});
     }
 
     async addOrEdit(request: Request, response: Response, next: NextFunction){
-        let buyResult = await this.operationsRepository.save(request.body);
-        return buyResult
+        return this.operationsRepository.save(request.body);
     }
     
 }
