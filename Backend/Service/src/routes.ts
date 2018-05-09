@@ -1,4 +1,6 @@
 import {ShoesController} from "./controller/ShoesController";
+import {BrandsController} from "./controller/BrandsController";
+import {OperationsController} from "./controller/OperationsController";
 
 export const Routes = [{
     method: "get",
@@ -25,5 +27,31 @@ export const Routes = [{
     route: "/shoes/brand/:id",
     controller: ShoesController,
     action: "getByBrand"
+}, {
+    method: "get",
+    route: "/brand",
+    controller: BrandsController,
+    action: "getBrands"
+}, {
+    method: "get",
+    route: "/operations",
+    controller: OperationsController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/operations/:type",
+    controller: OperationsController,
+    action: "byType"
+}, {
+    method: "post",
+    route: "/operations",
+    controller: OperationsController,
+    action: "addOrEdit"
+},{
+    method: "delete",
+    route: "/operations/:id",
+    controller: OperationsController,
+    action: "remove"
 }
+
 ];

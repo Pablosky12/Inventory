@@ -4,10 +4,17 @@
   <button mat-button [matMenuTriggerFor]="shoes" >Shoes</button>
 
   <mat-menu #shoes="matMenu" overlapTrigger="false">
-      <button mat-menu-item>Add New</button>
-      <button mat-menu-item>All Shoes</button>
-      <button mat-menu-item>By Brand</button>
+      <button mat-menu-item routerLink="/shoes/add">Add New</button>
+      <button mat-menu-item routerLink="/shoes">All Shoes</button>
+      <button mat-menu-item [matMenuTriggerFor]="brandsMenu">By Brand</button>
   </mat-menu>
+  <mat-menu #brandsMenu="matMenu">
+    <button mat-menu-item routerLink="/shoes/brand/1">Adidas</button>
+    <button mat-menu-item routerLink="/shoes/brand/2">Nike</button>
+    <button mat-menu-item routerLink="/shoes/brand/3">Puma</button>
+    <button mat-menu-item routerLink="/shoes/brand/4">Under Armour</button>
+  </mat-menu>
+
 
   <button mat-button [matMenuTriggerFor]="transactions">Transactions</button>
 

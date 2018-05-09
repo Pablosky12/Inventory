@@ -18,5 +18,8 @@ export class OperationsController {
     async addOrEdit(request: Request, response: Response, next: NextFunction){
         return this.operationsRepository.save(request.body);
     }
+    async remove(request: Request, response: Response, next: NextFunction) {
+        return this.operationsRepository.delete(request.params.id);
+    }
     
 }

@@ -19,7 +19,7 @@ export class ShoesController {
     }
 
     async remove(request: Request, response: Response, next: NextFunction) {
-        return await this.shoesRepository.delete(request.params.id);
+        return this.shoesRepository.delete(request.params.id);
     }
     
     async getByBrand(request: Request, response: Response, next: NextFunction) {

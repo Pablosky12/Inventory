@@ -5,12 +5,22 @@ import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
 import {Routes} from "./routes";
 import { Shoe } from "./entity/Shoe";
+import  * as cors from 'cors';
 
 createConnection().then(async connection => {
 
     // create express app
     const app = express();
-    app.use(bodyParser.json());
+    const options:cors.CorsOptions = {
+        allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
+        credentials: true,
+        methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+        origin: "http://localhost:4200",
+        preflightContinue: false
+      };
+    app.use(bodyParser.json())
+      
+    app.use(cors(options));
 
     // register express routes from defined application routes
     Routes.forEach(route => {

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule
   , MatToolbarModule, MatSidenavModule, MatIconModule,
-  MatMenuModule, MatCardModule, MatFormFieldModule, MatInputModule,  } from '@angular/material';
+  MatMenuModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule  } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -34,7 +34,7 @@ import { AddShoeComponent } from './add-shoe/add-shoe.component';
     MatSidenavModule, MatIconModule, MatMenuModule,
     HttpModule, MatCardModule, FlexLayoutModule,
      ReactiveFormsModule, MatFormFieldModule,
-    AppRoutingModule, MatInputModule
+    AppRoutingModule, MatInputModule, MatSelectModule
   ],
   providers: [ShoesApiService],
   bootstrap: [AppComponent]

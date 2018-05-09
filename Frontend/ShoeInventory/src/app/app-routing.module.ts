@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddShoeComponent } from './add-shoe/add-shoe.component';
+import { ShoeCardComponent } from './shoe-card/shoe-card.component';
 
 const routes: Routes = [
-  {path: 'shoes/new', component: AddShoeComponent}
+  {path: 'shoes/add', component: AddShoeComponent},
+  {path: 'shoes', component: ShoeCardComponent},
+  {path: 'shoes/brand/:id', component: ShoeCardComponent}
 ];
 
 @NgModule({

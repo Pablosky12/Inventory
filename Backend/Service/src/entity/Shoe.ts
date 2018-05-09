@@ -12,6 +12,9 @@ export class Shoe {
     @Column()
     price: string;
 
+    @Column()
+    imageSrc: string;
+
     @OneToOne(type => Brand, Brand => Brand.id)
     @JoinColumn()
     brand: number;
