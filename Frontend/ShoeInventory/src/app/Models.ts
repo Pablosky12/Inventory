@@ -1,10 +1,18 @@
 export class Shoe {
   constructor(
-    Name: string,
-    Id: number,
-    BrandId: number,
-    BrandName: string,
-    Price: string,
+    public codename: string,
+    public id: number,
+    public brand: Brand,
+    public price: string,
+    public imageSrc: string,
+  ) {
+  }
+}
+
+export class Brand {
+  constructor(
+    public id: number = 0,
+    public name: string
   ) {}
 }
 

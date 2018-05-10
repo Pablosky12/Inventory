@@ -37,4 +37,21 @@ export class ShoesApiService {
 
     return this.http.get(route).toPromise().then(res => res.json());
   }
+
+  addOrUpdateShoe(shoe: Shoe) {
+    console.log(shoe);
+    const route = this.svcUrl + '/shoes';
+
+    this.http.post(route, shoe).toPromise();
+  }
+
+  deleteShoe(id: number) {
+    const route = this.svcUrl + '/shoes/' + id;
+    this.http.delete(route).toPromise().then(() => this.getShoes('shoes'));
+  }
+
+  async getShoe(id: string) {
+    const route = this.svcUrl + '/shoes/' + id;
+    return this.http.get(route).toPromise();
+  }
 }

@@ -2,10 +2,18 @@
   margin-top:5em;
 }
 mat-card img{
-  object-fit: cover;
+  object-fit: scale-down;
   height: 200px;
-  width: 200px;
+  width: 300px;
 }
 mat-card-content{
   margin-top: 1em;
+}
+
+.buyButton{
+  background-color: rgb(18, 185, 54)
+}
+
+mat-card{
+  background-color: #34373e
 }

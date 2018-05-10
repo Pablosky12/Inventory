@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Shoe } from '../Models';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Shoe, Brand } from '../Models';
 import { ShoesApiService } from '../shoesApi.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-shoe',
@@ -10,21 +11,25 @@ import { ShoesApiService } from '../shoesApi.service';
 })
 export class AddShoeComponent implements OnInit {
 
-  newShoe: FormGroup;
   brands;
-  constructor(private shoesApi: ShoesApiService) { }
-
+  model: Shoe;
+  constructor(private shoesApi: ShoesApiService, private route: ActivatedRoute) {
+    const lastPath = this.route.snapshot.url.pop().path;
+    if (lastPath !== 'add') {
+      this.shoesApi.getShoe(lastPath).then( res => this.model = res.json());
+    }
+  }
   ngOnInit() {
-
+    console.log(this.model);
+    if (!this.model) {
+      this.model = new Shoe('', 0, new Brand(0, ''), '', '');
+    }
     this.shoesApi.getBrands().then(result => this.brands = result);
+  }
 
-    this.newShoe = new FormGroup({
-      name: new FormControl('', [ Validators.required,
-         Validators.minLength(3),
-         Validators.maxLength(25)]),
-      brand: new FormControl('', [Validators.required]),
-      price: new FormControl('')
-    });
+  onSubmit(shoe) {
+    this.shoesApi.addOrUpdateShoe(shoe.value);
+    window.location.href = '/shoes';
   }
 
 }

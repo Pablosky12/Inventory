@@ -1,0 +1,5 @@
+<div fxLayout="row wrap" fxLayoutGap="10px"class="card-deck-container md-elevation-4">
+  <div fxFlex="24" *ngFor="let shoe of shoes" class="card-item">
+    <app-shoe-card [ngStyle]="{'width':'300' + 'px'}" [shoe]="shoe"></app-shoe-card>
+  </div>
+</div>

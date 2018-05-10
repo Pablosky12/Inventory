@@ -5,35 +5,40 @@
       <mat-card-title> Add a new Shoe</mat-card-title>
       <mat-card-subtitle> Provide the new shoe data</mat-card-subtitle>
     </mat-card-header>
-      <form [formGroup]="newShoe" fxLayout="column">
+      <form (ngSubmit)="onSubmit(shoe)" #shoe="ngForm" fxLayout="column">
 
+        <input type="hidden" [(ngModel)]="model.id" name="id">
         <mat-form-field>
-          <input matInput formControlName="name"placeholder="Name">
+          <input type="text" matInput  [(ngModel)]="model.codename" #codename="ngModel" name="codename"
+          placeholder="Name" required minlength="3">
+          <mat-error *ngIf="codename.hasError('minlength')">
+            Length must be greater than 3
+          </mat-error>
+          <mat-error *ngIf="codename.hasError('required')">
+            This Field is required
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput formControlName="imgSrc" placeholder="Image source">
+          <input matInput ngModel #imageSrc="ngModel" [(ngModel)]="model.imageSrc"
+           placeholder="Image source" name="imageSrc">
+          <mat-hint>Write the url of a image for reference of the shoe</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput formControlName="brand"placeholder="Nike" value="1">
+          <input type="number" matInput placeholder="Price"  [(ngModel)]="model.price"
+          #price="ngModel" name="price" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput formControlName="price"placeholder="Price">
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-select placeholder="Favorite food">
+            <mat-select placeholder="Brand" ngModel #brandId="ngModel" required name="brand">
               <mat-option *ngFor="let brand of brands" [value]="brand.id">
                 {{ brand.name }}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+        </mat-form-field>
 
+          <button type="submit" mat-raised-button color="primary" [disabled]="shoe.invalid">Submit</button>
       </form>
-    <mat-card-actions fxLayoutAlign="end center">
-      <button mat-raised-button color="primary">Submit</button>
-    </mat-card-actions>
-  </mat-card>
+    </mat-card>
 </div>
