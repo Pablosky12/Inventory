@@ -15,5 +15,7 @@ mat-card-content{
 }
 
 mat-card{
-  background-color: #34373e
+  background-color: #ffffff;
+  color: black;
+  font-weight: bold;
 }

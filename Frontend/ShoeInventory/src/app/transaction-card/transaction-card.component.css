@@ -1,0 +1,11 @@
+.transactionsBody{
+  margin-top: 6em;
+}
+
+.transaction{
+  margin: 20px;
+}
+
+.sell{
+  background-color: green!important;
+}

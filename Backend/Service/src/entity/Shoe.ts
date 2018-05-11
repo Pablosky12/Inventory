@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
-import { Brand } from "./Brand"
+import { Brand } from "./Brand";
 
 @Entity()
 export class Shoe {

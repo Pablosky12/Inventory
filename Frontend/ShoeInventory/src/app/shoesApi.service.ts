@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Shoe, Transaction } from './Models';
+import { Shoe} from './Models';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -30,6 +30,7 @@ export class ShoesApiService {
      },
      err => {console.log('cant get shoes'); });
     this.shoeSubject.next(this.shoes);
+
   }
 
    getBrands() {
@@ -39,7 +40,6 @@ export class ShoesApiService {
   }
 
   addOrUpdateShoe(shoe: Shoe) {
-    console.log(shoe);
     const route = this.svcUrl + '/shoes';
 
     this.http.post(route, shoe).toPromise();

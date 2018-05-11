@@ -22,7 +22,7 @@ export class AddShoeComponent implements OnInit {
   ngOnInit() {
     console.log(this.model);
     if (!this.model) {
-      this.model = new Shoe('', 0, new Brand(0, ''), '', '');
+      this.model = new Shoe('', 0, new Brand(0, ''), 0, '');
     }
     this.shoesApi.getBrands().then(result => this.brands = result);
   }

@@ -1,3 +1,12 @@
-<p>
-  transaction-card works!
-</p>
+<div class="transactionsBody" >
+<mat-card *ngFor="let transaction of transactions"
+[ngClass]="{'sell':transaction.type==sell}" class="transaction" >
+  <mat-card-header>
+    <mat-card-title>{{transaction.price | currency}}</mat-card-title>
+    <mat-card-subtitle>Id: {{transaction.id}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    {{transaction.type}} {{transaction.ammount}} {{transaction.productId.codename}}
+  </mat-card-content>
+</mat-card>
+</div>

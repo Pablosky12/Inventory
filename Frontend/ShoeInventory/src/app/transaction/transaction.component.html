@@ -1,3 +1,28 @@
-<p>
-  transaction works!
-</p>
+<div fxLayout="column" fxLayoutAlign="center center">
+<h2 mat-dialog-title>Buy/Sell {{shoe.codename}}</h2>
+
+<mat-dialog-content >
+
+  <form #transactionForm="ngForm" fxLayout="column" >
+    <mat-form-field>
+        <input matInput #ammount ngModel placeholder="How many?" name="ammount" required type="number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="operation" ngModel name="operation" required>
+        <mat-option value="BUY">
+          BUY
+        </mat-option>
+        <mat-option value="SELL">
+          SELL
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button closeButton"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save(transactionForm)" [disabled]="transactionForm.invalid">Save</button>
+</mat-dialog-actions>
+</div>

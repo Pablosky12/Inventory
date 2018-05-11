@@ -3,7 +3,7 @@ export class Shoe {
     public codename: string,
     public id: number,
     public brand: Brand,
-    public price: string,
+    public price: number,
     public imageSrc: string,
   ) {
   }
@@ -17,5 +17,13 @@ export class Brand {
 }
 
 export class Transaction {
+  constructor(
+    public price: number,
+    public id: number,
+    public ammount: number,
+    public productId: number,
+    public productNameId: string
+    public type: string,
+  ) {}
 }
 

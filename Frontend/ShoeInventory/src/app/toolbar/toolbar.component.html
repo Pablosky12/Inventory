@@ -21,9 +21,9 @@
   <button mat-button [matMenuTriggerFor]="transactions">Transactions</button>
 
   <mat-menu #transactions="matMenu" overlapTrigger="false">
-      <button mat-menu-item>Sells</button>
-      <button mat-menu-item>Purchases</button>
-      <button mat-menu-item>All</button>
+      <button mat-menu-item routerLink="/transactions/sell">Sells</button>
+      <button mat-menu-item routerLink="/transactions/buy">Purchases</button>
+      <button mat-menu-item routerLink="/transactions">All</button>
   </mat-menu>
 
 </mat-toolbar>

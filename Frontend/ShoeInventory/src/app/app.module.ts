@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule
   , MatToolbarModule, MatSidenavModule, MatIconModule,
-  MatMenuModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule  } from '@angular/material';
+  MatMenuModule, MatCardModule, MatFormFieldModule,
+  MatInputModule, MatSelectModule, MatDialogModule  } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -21,7 +22,7 @@ import { AddShoeComponent } from './add-shoe/add-shoe.component';
 import { ShoegridComponent } from './shoegrid/shoegrid.component';
 import { TransactionsGridComponent } from './transactions-grid/transactions-grid.component';
 import { TransactionCardComponent } from './transaction-card/transaction-card.component';
-import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
+import { TransactionsApiService } from './transactions-api.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { EditTransactionComponent } from './edit-transaction/edit-transaction.co
     ShoegridComponent,
     TransactionsGridComponent,
     TransactionCardComponent,
-    EditTransactionComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +42,11 @@ import { EditTransactionComponent } from './edit-transaction/edit-transaction.co
     MatSidenavModule, MatIconModule, MatMenuModule,
     HttpModule, MatCardModule, FlexLayoutModule,
     FormsModule, MatFormFieldModule,
-    AppRoutingModule, MatInputModule, MatSelectModule
+    AppRoutingModule, MatInputModule, MatSelectModule,
+    MatDialogModule
   ],
-  providers: [ShoesApiService],
-  bootstrap: [AppComponent]
+  providers: [ShoesApiService, TransactionsApiService],
+  bootstrap: [AppComponent],
+  entryComponents: [TransactionComponent]
 })
 export class AppModule { }

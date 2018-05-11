@@ -34,17 +34,17 @@ export const Routes = [{
     action: "getBrands"
 }, {
     method: "get",
-    route: "/operations",
+    route: "/transactions",
     controller: OperationsController,
     action: "all"
 }, {
     method: "get",
-    route: "/operations/:type",
+    route: "/transactions/:type",
     controller: OperationsController,
     action: "byType"
 }, {
     method: "post",
-    route: "/operations",
+    route: "/transactions",
     controller: OperationsController,
     action: "addOrEdit"
 },{
